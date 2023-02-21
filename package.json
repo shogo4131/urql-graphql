@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-template",
+  "name": "urql-lesson",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -16,13 +16,22 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "graphql": "^16.6.0",
+    "graphql-tag": "^2.12.6",
     "next": "13.1.6",
+    "next-urql": "^4.0.3",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-is": "^18.2.0",
+    "urql": "^3.0.3"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.5.16",
     "@babel/core": "^7.21.0",
+    "@graphql-codegen/cli": "^3.1.0",
+    "@graphql-codegen/typescript": "^3.0.1",
+    "@graphql-codegen/typescript-operations": "^3.0.1",
+    "@graphql-codegen/typescript-urql": "^3.7.3",
+    "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-interactions": "^6.5.16",
     "@storybook/addon-links": "^6.5.16",
@@ -34,12 +43,13 @@
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
-    "babel-loader": "^9.1.2",
     "@typescript-eslint/parser": "^5.52.0",
+    "@urql/devtools": "^2.0.3",
+    "babel-loader": "^9.1.2",
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
-    "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-config-prettier": "^8.6.0",
+    "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-prettier": "^4.2.1",
