@@ -13,7 +13,9 @@
     "typecheck": "tsc --noEmit",
     "prepare": "husky install",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "generate": "graphql-codegen",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "graphql": "^16.6.0",
@@ -23,7 +25,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-is": "^18.2.0",
-    "urql": "^3.0.3"
+    "urql": "^3.0.3",
+    "zod": "^3.20.6"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
@@ -31,6 +34,7 @@
     "@graphql-codegen/typescript": "^3.0.1",
     "@graphql-codegen/typescript-operations": "^3.0.1",
     "@graphql-codegen/typescript-urql": "^3.7.3",
+    "@graphql-codegen/urql-introspection": "^2.2.1",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-interactions": "^6.5.16",
@@ -55,6 +59,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
+    "msw": "^1.1.0",
     "prettier": "^2.8.4",
     "storybook-addon-next-router": "^4.0.2",
     "tsconfig-paths-webpack-plugin": "^4.0.0",
