@@ -41,6 +41,7 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "@next/next/no-img-element": "off",
+    "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-member-accessibility": "off",
     "@typescript-eslint/indent": "off",
@@ -62,6 +63,7 @@
         "allow": ["warn", "error"]
       }
     ],
+    // "no-restricted-imports": ["error", { "pattern": ["@/features/*/*"] }],
     /* importの順番を決める(デフォルトから用途により変更する) */
     "import/order": [
       "error",
