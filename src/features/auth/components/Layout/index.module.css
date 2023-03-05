@@ -1,0 +1,20 @@
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #0000ff;
+}
+
+.formContainer {
+  height: 400px;
+  background-color: #ffffff;
+  padding: 100px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
