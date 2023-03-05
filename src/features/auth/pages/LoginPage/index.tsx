@@ -1,5 +1,9 @@
+import Link from 'next/link';
+
+import { Layout } from '@/features/auth/components/Layout';
 import { useLoginMutation } from '@/graphql/generated/graphql';
 
+import { Button } from '@/components/Elemets/Button';
 import { TextField } from '@/components/Form/TextField';
 
 import styles from './index.module.css';
@@ -12,9 +16,8 @@ export const LoginPage = () => {
   };
 
   return (
-    <div className={styles.root}>
-      <form className={styles.formGroup}>
-        <h1 className={styles.title}>ログイン</h1>
+    <Layout title="テストアプリ">
+      <form onSubmit={onSubmitHandler}>
         <TextField
           className={styles.textFields}
           type="text"
@@ -33,12 +36,16 @@ export const LoginPage = () => {
           // eslint-disable-next-line no-console
           onChange={() => console.log(888)}
         />
-        <div>
-          <button type="button" onClick={onSubmitHandler}>
-            ログイン
-          </button>
+        <div className={styles.loginButton}>
+          <Button type="submit">ログイン</Button>
         </div>
       </form>
-    </div>
+      <div className={styles.register}>
+        新規登録の方は
+        <Link href="/register" className={styles.link}>
+          こちら
+        </Link>
+      </div>
+    </Layout>
   );
 };
