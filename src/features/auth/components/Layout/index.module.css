@@ -7,7 +7,7 @@
 }
 
 .formContainer {
-  height: 400px;
+  min-height: 400px;
   background-color: #ffffff;
   padding: 100px;
   text-align: center;
