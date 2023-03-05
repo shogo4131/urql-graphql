@@ -119,6 +119,15 @@ export type LoginMutation = {
   login: { __typename?: 'User'; username: string; token: string; id: string };
 };
 
+export type RegisterMutationVariables = Exact<{
+  registerInput: RegisterInput;
+}>;
+
+export type RegisterMutation = {
+  __typename?: 'Mutation';
+  register: { __typename?: 'User'; username: string; token: string; id: string };
+};
+
 export const LoginDocument = gql`
   mutation Login($username: String!, $password: String!) {
     login(username: $username, password: $password) {
@@ -131,6 +140,19 @@ export const LoginDocument = gql`
 
 export function useLoginMutation() {
   return Urql.useMutation<LoginMutation, LoginMutationVariables>(LoginDocument);
+}
+export const RegisterDocument = gql`
+  mutation Register($registerInput: RegisterInput!) {
+    register(registerInput: $registerInput) {
+      username
+      token
+      id
+    }
+  }
+`;
+
+export function useRegisterMutation() {
+  return Urql.useMutation<RegisterMutation, RegisterMutationVariables>(RegisterDocument);
 }
 
 export default {
