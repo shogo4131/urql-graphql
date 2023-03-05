@@ -8,6 +8,6 @@ export default {
 
 export const Default: ComponentStoryObj<typeof Button> = {
   args: {
-    children: 'テスト',
+    children: 'ログイン',
   },
 };
