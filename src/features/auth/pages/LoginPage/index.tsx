@@ -1,10 +1,12 @@
+/* eslint-disable no-console */
 import Link from 'next/link';
 
 import { Layout } from '@/features/auth/components/Layout';
 import { useLoginMutation } from '@/graphql/generated/graphql';
 
 import { Button } from '@/components/Elemets/Button';
-import { TextField } from '@/components/Form/TextField';
+import { FieldWrapper } from '@/components/Form/FieldWrapper';
+import { InputField } from '@/components/Form/InputField';
 
 import styles from './index.module.css';
 
@@ -18,24 +20,12 @@ export const LoginPage = () => {
   return (
     <Layout title="テストアプリ">
       <form onSubmit={onSubmitHandler}>
-        <TextField
-          className={styles.textFields}
-          type="text"
-          htmlFor="name"
-          label="名前"
-          id="name"
-          // eslint-disable-next-line no-console
-          onChange={() => console.log(888)}
-        />
-        <TextField
-          className={styles.textFields}
-          type="password"
-          htmlFor="password"
-          label="パスワード"
-          id="password"
-          // eslint-disable-next-line no-console
-          onChange={() => console.log(888)}
-        />
+        <FieldWrapper label="名前" htmlFor="name">
+          <InputField type="text" id="name" onChange={() => console.log(888)} />
+        </FieldWrapper>
+        <FieldWrapper label="パスワード" htmlFor="password">
+          <InputField type="password" id="password" onChange={() => console.log(888)} />
+        </FieldWrapper>
         <div className={styles.loginButton}>
           <Button type="submit">ログイン</Button>
         </div>
