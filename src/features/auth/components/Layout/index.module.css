@@ -10,11 +10,11 @@
   min-height: 400px;
   background-color: #ffffff;
   padding: 100px;
-  text-align: center;
   border-radius: 10px;
 }
 
 .title {
+  text-align: center;
   font-size: 32px;
   margin-bottom: 24px;
 }

@@ -1,12 +1,3 @@
-.textFields {
-  display: flex;
-  align-items: center;
-}
-
-.textFields:last-child {
-  margin-bottom: 10px;
-}
-
 .loginButton {
   margin-top: 40px;
 }
@@ -18,4 +9,9 @@
 
 .link {
   color: #5d99ff;
+}
+
+.register,
+.loginButton {
+  text-align: center;
 }
