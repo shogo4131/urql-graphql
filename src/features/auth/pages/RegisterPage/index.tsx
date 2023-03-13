@@ -14,7 +14,7 @@ import styles from './index.module.css';
 const schema = z
   .object({
     name: z.string().min(1, '名前は必須です。').trim(),
-    email: z.string().email('書式に誤りがあります。').min(1, 'メールアドレスは必須です。'),
+    email: z.string().min(1, 'メールアドレスは必須です。').email('書式に誤りがあります。'),
     password: z.string().min(1, 'パスワードを入力してください。'),
     passwordConfirm: z.string().min(1, '確認パスワードを入力してください。'),
   })
@@ -28,7 +28,11 @@ type Schema = z.infer<typeof schema>;
 export const RegisterPage = () => {
   const [, register] = useRegisterMutation();
 
-  const { register: registerForm, handleSubmit } = useForm<Schema>({
+  const {
+    register: registerForm,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Schema>({
     resolver: zodResolver(schema),
   });
 
@@ -45,17 +49,17 @@ export const RegisterPage = () => {
 
   return (
     <Layout title="新規登録">
-      <form onSubmit={handleSubmit(onClickRegisterHandler)}>
-        <FieldWrapper label="名前" htmlFor="name">
+      <form className={styles.formGroup} onSubmit={handleSubmit(onClickRegisterHandler)}>
+        <FieldWrapper label="名前" htmlFor="name" errror={errors.name}>
           <InputField type="text" id="name" registration={registerForm('name')} />
         </FieldWrapper>
-        <FieldWrapper label="メールアドレス" htmlFor="email">
+        <FieldWrapper label="メールアドレス" htmlFor="email" errror={errors.email}>
           <InputField type="email" id="email" registration={registerForm('email')} />
         </FieldWrapper>
-        <FieldWrapper label="パスワード" htmlFor="password">
+        <FieldWrapper label="パスワード" htmlFor="password" errror={errors.password}>
           <InputField type="password" id="password" registration={registerForm('password')} />
         </FieldWrapper>
-        <FieldWrapper label="パスワード確認" htmlFor="confirm">
+        <FieldWrapper label="パスワード確認" htmlFor="confirm" errror={errors.passwordConfirm}>
           <InputField type="password" id="confirm" registration={registerForm('passwordConfirm')} />
         </FieldWrapper>
         <div className={styles.registerButton}>
