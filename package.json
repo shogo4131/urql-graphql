@@ -50,7 +50,7 @@
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
-    "@typescript-eslint/parser": "^5.54.0",
+    "@typescript-eslint/parser": "^5.55.0",
     "@urql/devtools": "^2.0.3",
     "babel-loader": "^9.1.2",
     "eslint": "8.34.0",
