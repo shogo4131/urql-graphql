@@ -31,8 +31,9 @@ export const RegisterPage = () => {
   const {
     register: registerForm,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<Schema>({
+    mode: 'onBlur',
     resolver: zodResolver(schema),
   });
 
@@ -63,7 +64,9 @@ export const RegisterPage = () => {
           <InputField type="password" id="confirm" registration={registerForm('passwordConfirm')} />
         </FieldWrapper>
         <div className={styles.registerButton}>
-          <Button type="submit">登録</Button>
+          <Button type="submit" disabled={!isValid}>
+            登録
+          </Button>
         </div>
       </form>
     </Layout>

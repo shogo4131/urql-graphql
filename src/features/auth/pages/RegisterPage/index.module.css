@@ -1,8 +1,7 @@
-.formGroup > div {
+.formGroup > div:not(:last-child) {
   margin-bottom: 24px;
 }
 
 .registerButton {
-  margin-top: 40px;
   text-align: center;
 }
