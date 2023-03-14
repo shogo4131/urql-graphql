@@ -1,3 +1,7 @@
+.formGroup > div:first-child {
+  margin-bottom: 24px;
+}
+
 .loginButton {
   margin-top: 40px;
 }
