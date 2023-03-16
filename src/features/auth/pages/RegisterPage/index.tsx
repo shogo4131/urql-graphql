@@ -1,9 +1,11 @@
+import { useRouter } from 'next/router';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import z from 'zod';
 
 import { Layout } from '@/features/auth/components/Layout';
-import { useRegisterMutation } from '@/graphql/generated/graphql';
+import { useAuth } from '@/providers/authProvider';
 
 import { Button } from '@/components/Elemets/Button';
 import { FieldWrapper } from '@/components/Form/FieldWrapper';
@@ -26,7 +28,8 @@ const schema = z
 type Schema = z.infer<typeof schema>;
 
 export const RegisterPage = () => {
-  const [, register] = useRegisterMutation();
+  const { push } = useRouter();
+  const { registerHandler } = useAuth();
 
   const {
     register: registerForm,
@@ -38,14 +41,9 @@ export const RegisterPage = () => {
   });
 
   const onClickRegisterHandler: SubmitHandler<Schema> = async (data) => {
-    await register({
-      registerInput: {
-        username: data.name,
-        email: data.email,
-        password: data.password,
-        confirmPassword: data.passwordConfirm,
-      },
-    });
+    const { name, email, password, passwordConfirm } = data;
+    await registerHandler(name, email, password, passwordConfirm);
+    push('/posts');
   };
 
   return (
