@@ -2,13 +2,11 @@ import '../styles/globals.css';
 import 'ress';
 import type { AppProps } from 'next/app';
 
-import { Provider } from 'urql';
-
-import { client } from '@/libs/client';
+import { Provider } from '@/providers';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <Provider value={client}>
+    <Provider>
       <Component {...pageProps} />
     </Provider>
   );
