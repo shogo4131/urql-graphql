@@ -1,4 +1,4 @@
-import { FC, ReactNode, createContext, useState } from 'react';
+import { type FC, type ReactNode, createContext, useContext, useState } from 'react';
 
 import {
   RegisterMutation,
@@ -37,7 +37,7 @@ export const AuthContext = createContext<AuthContext>({
   loginHandler: exception,
 });
 
-export const useAtuh = createContext(AuthContext);
+export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider: FC<Props> = ({ children }) => {
   const [, register] = useRegisterMutation();
