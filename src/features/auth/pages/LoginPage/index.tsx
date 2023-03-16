@@ -1,11 +1,12 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import z from 'zod';
 
 import { Layout } from '@/features/auth/components/Layout';
-import { useLoginMutation } from '@/graphql/generated/graphql';
+import { useAuth } from '@/providers/authProvider';
 
 import { Button } from '@/components/Elemets/Button';
 import { FieldWrapper } from '@/components/Form/FieldWrapper';
@@ -21,7 +22,8 @@ const schema = z.object({
 type Schema = z.infer<typeof schema>;
 
 export const LoginPage = () => {
-  const [, login] = useLoginMutation();
+  const { loginHandler } = useAuth();
+  const { push } = useRouter();
 
   const {
     register,
@@ -33,7 +35,8 @@ export const LoginPage = () => {
   });
 
   const onClickLoginHandler: SubmitHandler<Schema> = async (data) => {
-    await login({ username: data.name, password: data.password });
+    await loginHandler(data.name, data.password);
+    push('/posts');
   };
 
   return (
