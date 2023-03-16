@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.11",
+    "@urql/exchange-auth": "^2.0.0",
     "graphql": "^16.6.0",
     "graphql-tag": "^2.12.6",
     "next": "13.2.3",
