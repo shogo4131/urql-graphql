@@ -1,0 +1,14 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2302ff;
+  color: #ffffff;
+  height: 80px;
+  padding: 20px;
+}
+
+.user {
+  display: flex;
+  gap: 16px;
+}
