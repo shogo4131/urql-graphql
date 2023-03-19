@@ -23,13 +23,16 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     [push]
   );
 
+  // NOTE: 初回レンダリング時のtokenのチェックを行う
   useEffect(() => {
-    // NOTE: 初回レンダリング時のtokenのチェックを行う
     handleRouteChange(asPath);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
+  useEffect(() => {
     events.on('routeChangeStart', handleRouteChange);
     return () => events.off('routeChangeStart', handleRouteChange);
-  }, [asPath, events, handleRouteChange]);
+  }, [events, handleRouteChange]);
 
   return (
     <Provider>
