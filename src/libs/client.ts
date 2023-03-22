@@ -1,5 +1,7 @@
 import { createClient } from 'urql';
 
+import { API_URL } from '@/config';
+
 export const client = createClient({
-  url: 'http://localhost:3030/graphql',
+  url: API_URL,
 });
