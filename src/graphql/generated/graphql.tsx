@@ -128,6 +128,23 @@ export type RegisterMutation = {
   register: { __typename?: 'User'; username: string; token: string; id: string };
 };
 
+export type GetPostsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetPostsQuery = {
+  __typename?: 'Query';
+  getPosts?: Array<{
+    __typename?: 'Post';
+    id: string;
+    body: string;
+    username: string;
+    likeCount: number;
+    commentCount: number;
+    createdAt: string;
+    comments: Array<{ __typename?: 'Comment'; id: string; username: string } | null>;
+    likes: Array<{ __typename?: 'Like'; id: string; username: string } | null>;
+  } | null> | null;
+};
+
 export const LoginDocument = gql`
   mutation Login($username: String!, $password: String!) {
     login(username: $username, password: $password) {
@@ -153,6 +170,35 @@ export const RegisterDocument = gql`
 
 export function useRegisterMutation() {
   return Urql.useMutation<RegisterMutation, RegisterMutationVariables>(RegisterDocument);
+}
+export const GetPostsDocument = gql`
+  query GetPosts {
+    getPosts {
+      id
+      body
+      username
+      likeCount
+      commentCount
+      createdAt
+      comments {
+        id
+        username
+      }
+      likes {
+        id
+        username
+      }
+    }
+  }
+`;
+
+export function useGetPostsQuery(
+  options?: Omit<Urql.UseQueryArgs<GetPostsQueryVariables>, 'query'>
+) {
+  return Urql.useQuery<GetPostsQuery, GetPostsQueryVariables>({
+    query: GetPostsDocument,
+    ...options,
+  });
 }
 
 export default {
